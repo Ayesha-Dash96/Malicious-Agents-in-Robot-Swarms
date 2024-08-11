@@ -15,7 +15,7 @@ The motivation behind this project comes from the dynamic relationship between i
   as well as the client systems to execute a set of actions. It either updates the user interface or sends the requested data back to the client system. In this way, it acts as a communication hub of the swarm system.
   - _Json packets_-JSON packets are structured data formats that are used to send information to different parts of a system. In this experiment JSON packets have been used as a part of communication between robots and the client and between the client and the server system.
 
-**Behaviour algorithms:**
+## Behaviour algorithms:
 Normal behaviour 
       1. Start the `sendCommands` function.
       2. Initialize `robot.redCount` and `robot.blueCount` to 0, and also initialise `neighRed` and `neighBlue` to 0.
@@ -58,13 +58,13 @@ Normal behaviour
       7. Send Command: Send the command message to the robot to adjust its LED colour and motor speeds accordingly.
       8. Handle Errors: If any exceptions occur during execution, handle them and print error messages for troubleshooting.
   
-- **Limitations:**
+## Limitations:
 Below are the various limitations that are observed in the current Swarm hack model used for the experiment-
   a) One prominent limitation is that it lacks any advanced security measures which is commonly found in real-world applications. In practice, the swarm systems are deployed in target locations along with all the necessary security protocols to avoid any disruptions. Some of these security measures are encryption of messages, authentication, authorisation, password checks to prevent any malicious intrusions.
   b) The experiment is conducted in local network with a basic layer of network security which is not the case in real world as there are multiple layers of security placed in the network to avoid any sort of cyber-attack.
   c) Maintaining password checks and access control mechanisms enhance the security of the systems so that only authenticated robots with correct credentials are allowed to take part in the swarm activities. This presents any malicious robot to enter the system.
 
-- **Future Scope **
+## Future Scope:
 The project on malicious agents in robot swarms opens up various avenues for future research and development. Below are some potential directions in which this work can be extended:
 
 _Enhanced Malicious Detection Algorithms:_ Developing sophisticated algorithms for detecting malicious behavior within a swarm is crucial. Machine learning techniques could be employed to analyze patterns of normal and abnormal behavior in the swarm, helping to identify potential threats more accurately and swiftly. These algorithms could be designed to adapt over time, learning from new threats and improving their detection capabilities.
