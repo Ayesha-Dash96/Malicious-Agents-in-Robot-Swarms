@@ -36,6 +36,7 @@ Type 2 Charging Port: Facilitates easy charging using standard Type 2 cables.
 Wi-Fi Connectivity: Allows robots to communicate wirelessly within the network.
 Battery Life: Each robot has a battery life ranging from 2 to 8 hours, depending on usage.
 Energy Efficiency: The ESP32 microcontroller is designed to operate in energy-saving mode, waking up at regular intervals to minimize power consumption.
+
 - **Arena:**
 The experiment is conducted within a well-defined arena, measuring 1.92m x 1.08m. This confined space is carefully selected to create a controlled environment where the robots can perform their tasks without external interference. The arena's dimensions are chosen to ensure that the robots remain within the observation area, reducing the risk of accidents and unnecessary interactions with external factors.
 
@@ -63,6 +64,7 @@ Neighbor Interaction: For each neighboring robot, the algorithm checks its color
 Time-Based Decision Making: The algorithm checks if the current time minus the robot's last color change time exceeds a threshold. If so, it updates the robot's color based on the cumulative red and blue counts.
 Data Logging: The robot's data, including its new color, is saved to a CSV file for analysis.
 Command Execution: The robot's LED color and motor speeds are updated based on the new color, and a command message is sent to the robot.
+
 - **Malicious Behaviour:**
 Initialization: Variables are initialized, including a list of potentially malicious robot IDs (mal_robot) and a victim ID.
 Neighbor Interaction: The algorithm checks the colors of neighboring robots and identifies potential victims if their IDs are in the malicious list.
