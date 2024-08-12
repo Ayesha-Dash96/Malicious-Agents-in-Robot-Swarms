@@ -1,73 +1,100 @@
-# Malicious-Agents-in-Robot-Swarms
-This project explores the world of swarm robotics system, concentrating on the possible dangers and vulnerabilities that they may be susceptible to. Swarm robotics is an expanding field and offers numerous opportunities for its implementation in many industries. Nevertheless, as these frameworks become more sophisticated, their vulnerability to malicious misuse increases. This project seeks to identify and analyse the hostile behaviour in robot swarms and come up with measures to protect them from potential threats.
+# Malicious Agents in Robot Swarms
+## Project Summary
+Swarm robotics represents a rapidly growing field of study that leverages the collective behavior of multiple robots to achieve complex tasks that would be difficult or impossible for a single robot to accomplish. While the potential applications of swarm robotics are vast and transformative, from industrial automation to search-and-rescue operations, the increasing complexity of these systems also introduces new vulnerabilities. This project, titled "Malicious Agents in Robot Swarms," delves into the critical security challenges that arise when dealing with robot swarms, specifically focusing on the identification, analysis, and mitigation of malicious behaviors within these systems.
+
+## Table of Contents
+1. [Motivation](#motivation)
+2. [Project Details](#project-details)
+   - [Technologies Used](#technologies-used)
+   - [Behaviour Algorithms](#behaviour-algorithms)
+3. [Limitations](#limitations)
+4. [Future Scope](#future-scope)
+5. [Conclusion](#conclusion)
 
 ## Motivation
-The motivation behind this project comes from the dynamic relationship between innovation and security. Adapting innovation without implementing the necessary security measures makes an inefficient system. It is fascinating to realise that the technology that gives rise to more and more complex and advanced systems, is also the reason for the ongoing threats in them. In addition to the technical aspects, this study aims to emphasise the moral, financial, and societal factors linked to harmful individuals in groups of robots. In order to develop a defence strategy, it is important to first analyse how the swarm robots behave and how it can be misused. It is essential to realise the impact of such threats on the performance of the individual members in the swarm. The reason behind this project is to state the potential of swarm robots and to address the security issues that threaten to compromise the potential of such systems.
+The motivation for this project stems from the inherent tension between technological innovation and security. As we push the boundaries of what is possible with swarm robotics, we must also anticipate and address the potential risks that come with these advancements. Without proper security measures, even the most sophisticated systems can become vulnerable to exploitation, leading to inefficiencies, system failures, or worse, malicious takeovers.
+
+### Technological Impact
+Swarm robotics has the potential to revolutionize numerous industries by offering scalable, adaptable, and resilient solutions. However, the same complexity that allows these systems to function autonomously also makes them susceptible to security threats. Understanding and mitigating these risks is not just a technical challenge but a moral and societal imperative, as the misuse of robotic swarms could have far-reaching consequences.
+
+### Ethical Considerations
+In addition to the technical challenges, this project also addresses the ethical implications of deploying swarm robotics in environments where they might interact with humans. The potential for malicious agents to disrupt or corrupt the behavior of a swarm poses significant ethical concerns, particularly when these systems are used in critical applications such as healthcare, defense, or disaster response.
+
+### The Need for Security
+As with any advanced technology, the security of swarm robotics cannot be an afterthought. This project seeks to emphasize the importance of building security into the core of swarm robotic systems, ensuring that they are robust enough to withstand potential threats. By analyzing how these systems can be compromised, this project aims to develop strategies that will protect them from malicious actors, thereby safeguarding their potential to contribute positively to society.
 
 ## Project Details
-**Technologies Used**: The system consists of swarm robots, a web camera, a central server and a client system. These components are explained in detail below-
-  - _Swarm robots_- This experiment uses 10 swarm robots which are Mona robots, made of ESP 32 microcontrollers. The MONA robot platform, a structure built on open-source and open hardware principles, is crafted specifically for swarm robotics analyses. It's designed to tackle research areas that include infinite swarms, multi-agent coordination as well as the interaction or handling between human beings and an entire fleet of robotic structures (23). MONA robots are small and circular in size. They are 80mm in diameter and consist of 2 wheels that help them in movement if needed. It is built with two DC motors as well as 5 IR transmitter receivers that are placed in the front section of the robot. These robots are equipped with type
-  2 charging port that facilitates its charging using any type 2 cables. It has the ability to connect with wifi and communicate in the network. The battery life of this robot is 2-8 hours. The MONA robots used for this experiment have ESP32 embedded in it. ESP 32 is always in energy saving mode and needs to be woken up in regular intervals. This helps in minimising the energy consumption of ESP32. 
-  - _Arena_- The experiment is done in a well-defined arena measuring 1.92m x1.08m in dimensions. The arena serves as a physical space in which swarm robots do their tasks. This dimension is carefully chosen to create a controlled environment in which the experiments can be conducted. This confined space reduces the risk of swarm robots going beyond the observation area and reduces minor accidents and unnecessary interactions with the external factors. Also, it sets a boundary for the swarm, helping them to interact with each other if needed effectively within a small zone.
-  - _ArUco tags_- ArUco marker is a synthetic square marker that has been designed with a distinct pattern which helps it get recognised by the web camera. They are used for location and tracking of objects. They are placed in precise positions in the arena for the camera to detect the dimension of the arena. It is also used on top of all the swarm robots for the camera to detect them. The placement of the ArUco tags in the arena helps in calculating the area of the whole arena.
-  - _Web camera_- For this experiment, webcams are placed at the top of the arena to get a clear view of the swarm robots as well as the area of the experiment. This webcam has a resolution of 1080p and can cover the entire area of the arena. It acts as an essential detector for capturing and analysing data from the swarm robots. The web camera used is Brio which has excellent video quality. The resolution of the web camera is 4K Ultra HD and the video mode delivered is 1080p. This matches with the size of the arena. The web camera is mounted on top of the frame of the arena and is stationary.
-  - _Client system_- In this experiment, the client system plays an important role in forming a bridge between the operator and the robot swarms. The client system acts as a command interface which allows the operator to interact with the swarm robots by sending the desired commands. It also receives feedback from the robots and keeps a log of the essential data. Client system is primarily responsible for implementing the control logic of the colour change. After it receives values from server and robot, it implements the algorithm and sends the updated values back to the server system Server system- The central server is one of the main components of the system as it aggregates all the data received from the sensors, web camera
-  as well as the client systems to execute a set of actions. It either updates the user interface or sends the requested data back to the client system. In this way, it acts as a communication hub of the swarm system.
-  - _Json packets_-JSON packets are structured data formats that are used to send information to different parts of a system. In this experiment JSON packets have been used as a part of communication between robots and the client and between the client and the server system.
+### Technologies Used
+The experimental setup for this project includes several key components that work together to simulate and analyze the behavior of robot swarms in a controlled environment. Below is a detailed description of each component:
 
-## Behaviour algorithms:
-Normal behaviour 
-      1. Start the `sendCommands` function.
-      2. Initialize `robot.redCount` and `robot.blueCount` to 0, and also initialise `neighRed` and `neighBlue` to 0.
-      3. For each neighbour in the robot's list of neighbours, do the following:
-          - If the neighbour's ID is not equal to the robot's ID, do the following:
-          - If the neighbour's colour is "red," increment `robot.redCount` by 1 and add the neighbour's `redCount` to `neighRed`.
-          - If the neighbour's colour is "blue," increment `robot.blueCount` by 1 and add the neighbour's `blueCount` to `neighBlue`.
-      4. Check if the difference between the current time and `robot.colourTime` is greater than 3 plus a random number.
-      5. If the condition in step 4 is true, update `robot.colourTime` with the current time.
-      6. Determine the robot's new colour based on the following rules:
-          - If the sum of `robot.redCount` and `neighRed` is equal to the sum of `robot.blueCount` and `neighBlue`, keep the robot's current colour.
-          - If the sum of `robot.redCount` and `neighRed` is greater than the sum of `robot.blueCount` and `neighBlue`, set the robot's colour to "red."
-          - Otherwise, set the robot's colour to "blue."
-      7. Save the robot's data to a CSV file.
-      9. Set the LED colour of the robot to its new colour (`robot.colour`).
-      11. Send a command message to the robot's connection with the LED colour and motor speeds which is 0.
-      12. End the function.
-  Malicious behaviour
-      1. Initialize Variables:
-          - `mal_robot`: List of robot IDs considered potentially malicious.
-          - `victim`: ID of a robot that may become a victim.
-      2. For Each neighbouring Robot:
-          - Check if it's not the current robot.
-          - If the neighbour is red, increment the count of red neighbours.
-          - If the neighbour is blue, increment the count of blue neighbours.
-          - If the neighbour's ID is in the `mal_robot` list, set it as the `victim`.
-      3. If the robot's ID is that of victim, set its blue count and red count to 0
-      4. Check for colour Change:
-          - Determine if it's time to change the robot's colour based on elapsed time since last change.
-          - If it's time for a colour change:
-              - If the robot is not the victim and not in the malicious list:
-                  i. If the counts of red and blue neighbours are equal, keep the current colour.
-                  ii. If there are more red neighbours than blue, switch the robot's colour to red.
-                  iii. Otherwise, switch the robot's colour to blue.
-              - If the robot is the victim:
-                  i. Follow the same logic as above but reverse the colours.
-      4. Save Data: Save the robot's data (including its colour and relevant information) to a CSV file.
-      5. Report neighbour Counts: Print the current counts of red and blue neighbours for monitoring.
-      6. Prepare Command Message: Create a message specifying the robot's LED colour and motor speeds based on the updated colour.
-      7. Send Command: Send the command message to the robot to adjust its LED colour and motor speeds accordingly.
-      8. Handle Errors: If any exceptions occur during execution, handle them and print error messages for troubleshooting.
-  
-## Limitations:
-Below are the various limitations that are observed in the current Swarm hack model used for the experiment-
-  a) One prominent limitation is that it lacks any advanced security measures which is commonly found in real-world applications. In practice, the swarm systems are deployed in target locations along with all the necessary security protocols to avoid any disruptions. Some of these security measures are encryption of messages, authentication, authorisation, password checks to prevent any malicious intrusions.
-  b) The experiment is conducted in local network with a basic layer of network security which is not the case in real world as there are multiple layers of security placed in the network to avoid any sort of cyber-attack.
-  c) Maintaining password checks and access control mechanisms enhance the security of the systems so that only authenticated robots with correct credentials are allowed to take part in the swarm activities. This presents any malicious robot to enter the system.
+- **Swarm Robots:**
+This project uses 10 MONA robots, which are specifically designed for swarm robotics research. Each MONA robot is built on an ESP 32 microcontroller platform and adheres to open-source and open-hardware principles. These robots are small, circular devices with a diameter of 80mm, equipped with two wheels for movement, powered by DC motors. They feature 5 IR transmitter-receivers on their front side, enabling them to detect their surroundings and interact with other robots in the swarm.
 
-## Future Scope:
-The project on malicious agents in robot swarms opens up various avenues for future research and development. Below are some potential directions in which this work can be extended:
+Key features of the MONA robots include:
 
-_Enhanced Malicious Detection Algorithms:_ Developing sophisticated algorithms for detecting malicious behavior within a swarm is crucial. Machine learning techniques could be employed to analyze patterns of normal and abnormal behavior in the swarm, helping to identify potential threats more accurately and swiftly. These algorithms could be designed to adapt over time, learning from new threats and improving their detection capabilities.
-_Autonomous Defense Mechanisms:_Future work could explore the development of autonomous defense mechanisms that allow the swarm to detect, isolate, and neutralize malicious agents in real-time. This could involve creating self-healing systems where robots can reconfigure themselves to maintain overall swarm functionality even when some members are compromised.
-_Scalability and Large-Scale Swarm Systems:_ Expanding the system to manage larger swarms is a significant future direction. Research can focus on the scalability of both the security measures and the swarm algorithms to ensure they remain effective as the number of robots in the swarm increases. This also involves optimizing the communication protocols and network infrastructure to support large-scale operations.
-_Cross-Swarm Interaction and Coordination:_ Investigating how different swarms can interact and coordinate with each other, especially in scenarios where multiple swarms with different objectives operate in the same environment, presents a challenging and interesting research direction. Ensuring secure and efficient cross-swarm communication while preventing malicious interference is key.
+Type 2 Charging Port: Facilitates easy charging using standard Type 2 cables.
+Wi-Fi Connectivity: Allows robots to communicate wirelessly within the network.
+Battery Life: Each robot has a battery life ranging from 2 to 8 hours, depending on usage.
+Energy Efficiency: The ESP32 microcontroller is designed to operate in energy-saving mode, waking up at regular intervals to minimize power consumption.
+- **Arena:**
+The experiment is conducted within a well-defined arena, measuring 1.92m x 1.08m. This confined space is carefully selected to create a controlled environment where the robots can perform their tasks without external interference. The arena's dimensions are chosen to ensure that the robots remain within the observation area, reducing the risk of accidents and unnecessary interactions with external factors.
+
+- **ArUco Tags:**
+ArUco markers are synthetic square markers with unique patterns that allow them to be recognized by cameras. In this experiment, ArUco tags are strategically placed in the arena to assist with the localization and tracking of robots. Each robot is equipped with an ArUco tag on top, enabling the camera to identify and track their positions within the arena.
+
+- **Web Camera:**
+A Brio webcam with 1080p resolution is mounted above the arena to capture a comprehensive view of the robots and their interactions. This camera is critical for monitoring the experiment and collecting data. The Brio webcam is capable of recording in 4K Ultra HD, providing high-quality video that is essential for accurate analysis.
+
+- **Client System:**
+The client system serves as the command interface, allowing the operator to interact with the swarm. It sends commands to the robots and receives feedback, which is then logged for further analysis. The client system is responsible for implementing the control logic that governs the robots' behavior, particularly their color-changing behavior, which is central to this experiment.
+
+- **Server System:**
+The central server acts as the communication hub for the swarm. It aggregates data from the robots, the webcam, and the client system, executing commands as needed. The server is responsible for updating the user interface and relaying information between the client system and the swarm, ensuring smooth and coordinated operation.
+
+- **JSON Packets:**
+JSON (JavaScript Object Notation) packets are used to structure the data exchanged between different components of the system. These packets facilitate communication between the robots, the client system, and the server, ensuring that commands and data are transmitted in a standardized format.
+
+### Behaviour Algorithms
+The behavior of the robots in this experiment is governed by two primary algorithms: one for normal behavior and another for malicious behavior. These algorithms dictate how the robots interact with each other and respond to different conditions within the swarm.
+
+- **Normal Behaviour:**
+Initialization: The sendCommands function is initiated, setting robot.redCount and robot.blueCount to 0, along with initializing neighRed and neighBlue.
+Neighbor Interaction: For each neighboring robot, the algorithm checks its color and updates the robot's red and blue counts accordingly.
+Time-Based Decision Making: The algorithm checks if the current time minus the robot's last color change time exceeds a threshold. If so, it updates the robot's color based on the cumulative red and blue counts.
+Data Logging: The robot's data, including its new color, is saved to a CSV file for analysis.
+Command Execution: The robot's LED color and motor speeds are updated based on the new color, and a command message is sent to the robot.
+- **Malicious Behaviour:**
+Initialization: Variables are initialized, including a list of potentially malicious robot IDs (mal_robot) and a victim ID.
+Neighbor Interaction: The algorithm checks the colors of neighboring robots and identifies potential victims if their IDs are in the malicious list.
+Victim Manipulation: If the robot is identified as a victim, its red and blue counts are set to 0.
+Color Change Logic: The algorithm decides whether to change the robot's color based on elapsed time. If the robot is a victim, the color change logic is reversed, leading to potentially disruptive behavior in the swarm.
+Data Logging and Command Execution: Similar to the normal behavior algorithm, the robot's data is saved, and its LED color and motor speeds are updated based on the new color.
+### Limitations
+While this project provides valuable insights into the behavior of robot swarms and the impact of malicious agents, there are several limitations to the current experimental setup:
+
+- **Lack of Advanced Security Measures**
+One of the primary limitations is the absence of advanced security protocols, such as encryption, authentication, and authorization. In real-world applications, these measures are essential to prevent unauthorized access and ensure the integrity of the swarm. The experiment is conducted in a local network with basic security, which does not fully represent the challenges faced in more complex environments.
+
+- **Limited Network Security**
+The network used in this experiment has a basic layer of security, which is not sufficient to protect against sophisticated cyber-attacks. In real-world deployments, multiple layers of security are typically employed to safeguard the network and prevent malicious intrusions.
+
+- **No Access Control Mechanisms**
+The experiment lacks access control mechanisms, such as password checks or credential verification, which are commonly used in real-world systems to restrict participation in the swarm to authenticated robots. This presents a potential vulnerability, as it allows any robot to join the swarm without verification.
+
+### Future Scope
+The study of malicious agents in robot swarms opens up numerous avenues for future research and development. Below are some potential directions in which this work can be extended:
+
+- **Enhanced Malicious Detection Algorithms**
+Developing more sophisticated algorithms for detecting malicious behavior within a swarm is crucial. Machine learning techniques could be employed to analyze patterns of normal and abnormal behavior, enabling the system to identify potential threats more accurately and swiftly. These algorithms could be designed to adapt over time, learning from new threats and improving their detection capabilities.
+
+- **Autonomous Defense Mechanisms**
+Future work could explore the development of autonomous defense mechanisms that allow the swarm to detect, isolate, and neutralize malicious agents in real time. This could involve creating self-healing systems where robots can reconfigure themselves to maintain overall swarm functionality, even when some members are compromised.
+
+- **Scalability and Large-Scale Swarm Systems**
+As swarm robotics moves from research labs to real-world applications, the ability to scale up these systems will become increasingly important. Future research could focus on managing larger swarms effectively, ensuring that the algorithms and security measures developed in this project can be applied to swarms of hundreds or thousands of robots.
+
+- **Cross-Swarm Interaction and Secure Communication**
+In the future, multiple swarms may need to interact and cooperate on complex tasks. Ensuring secure communication between different swarms will be a critical area of research. This could involve developing protocols that allow swarms to exchange information securely, verify the authenticity of other swarms, and collaborate on tasks while safeguarding against potential threats.
+
+### Conclusion
+This project represents a foundational step in understanding and addressing the security challenges associated with swarm robotics. By investigating the behavior of malicious agents within a swarm, we have gained valuable insights into the potential vulnerabilities of these systems and the steps that can be taken to mitigate these risks. While the current work is primarily exploratory, it sets the stage for future research and development aimed at creating robust, secure, and scalable swarm robotic systems that can be deployed in a wide range of real-world applications.
