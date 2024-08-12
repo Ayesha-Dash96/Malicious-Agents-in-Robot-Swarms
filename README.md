@@ -30,12 +30,12 @@ The experimental setup for this project includes several key components that wor
 - **Swarm Robots:**
 This project uses 10 MONA robots, which are specifically designed for swarm robotics research. Each MONA robot is built on an ESP 32 microcontroller platform and adheres to open-source and open-hardware principles. These robots are small, circular devices with a diameter of 80mm, equipped with two wheels for movement, powered by DC motors. They feature 5 IR transmitter-receivers on their front side, enabling them to detect their surroundings and interact with other robots in the swarm.
 
-Key features of the MONA robots include:
-
-Type 2 Charging Port: Facilitates easy charging using standard Type 2 cables.<br />
-Wi-Fi Connectivity: Allows robots to communicate wirelessly within the network.<br />
-Battery Life: Each robot has a battery life ranging from 2 to 8 hours, depending on usage.<br />
-Energy Efficiency: The ESP32 microcontroller is designed to operate in energy-saving mode, waking up at regular intervals to minimize power consumption.
+      Key features of the MONA robots include:
+      
+      Type 2 Charging Port: Facilitates easy charging using standard Type 2 cables.<br />
+      Wi-Fi Connectivity: Allows robots to communicate wirelessly within the network.<br />
+      Battery Life: Each robot has a battery life ranging from 2 to 8 hours, depending on usage.<br />
+      Energy Efficiency: The ESP32 microcontroller is designed to operate in energy-saving mode, waking up at regular intervals to minimize power consumption.
 
 - **Arena:**
 The experiment is conducted within a well-defined arena, measuring 1.92m x 1.08m. This confined space is carefully selected to create a controlled environment where the robots can perform their tasks without external interference. The arena's dimensions are chosen to ensure that the robots remain within the observation area, reducing the risk of accidents and unnecessary interactions with external factors.
