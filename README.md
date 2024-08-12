@@ -32,9 +32,9 @@ This project uses 10 MONA robots, which are specifically designed for swarm robo
 
 Key features of the MONA robots include:
 
-Type 2 Charging Port: Facilitates easy charging using standard Type 2 cables.
-Wi-Fi Connectivity: Allows robots to communicate wirelessly within the network.
-Battery Life: Each robot has a battery life ranging from 2 to 8 hours, depending on usage.
+Type 2 Charging Port: Facilitates easy charging using standard Type 2 cables.<br />
+Wi-Fi Connectivity: Allows robots to communicate wirelessly within the network.<br />
+Battery Life: Each robot has a battery life ranging from 2 to 8 hours, depending on usage.<br />
 Energy Efficiency: The ESP32 microcontroller is designed to operate in energy-saving mode, waking up at regular intervals to minimize power consumption.
 
 - **Arena:**
@@ -59,18 +59,19 @@ JSON (JavaScript Object Notation) packets are used to structure the data exchang
 The behavior of the robots in this experiment is governed by two primary algorithms: one for normal behavior and another for malicious behavior. These algorithms dictate how the robots interact with each other and respond to different conditions within the swarm.
 
 - **Normal Behaviour:**
-Initialization: The sendCommands function is initiated, setting robot.redCount and robot.blueCount to 0, along with initializing neighRed and neighBlue.
-Neighbor Interaction: For each neighboring robot, the algorithm checks its color and updates the robot's red and blue counts accordingly.
-Time-Based Decision Making: The algorithm checks if the current time minus the robot's last color change time exceeds a threshold. If so, it updates the robot's color based on the cumulative red and blue counts.
-Data Logging: The robot's data, including its new color, is saved to a CSV file for analysis.
+Initialization: The sendCommands function is initiated, setting robot.redCount and robot.blueCount to 0, along with initializing neighRed and neighBlue.<br />
+Neighbor Interaction: For each neighboring robot, the algorithm checks its color and updates the robot's red and blue counts accordingly.<br />
+Time-Based Decision Making: The algorithm checks if the current time minus the robot's last color change time exceeds a threshold. If so, it updates the robot's color based on the cumulative red and blue counts.<br />
+Data Logging: The robot's data, including its new color, is saved to a CSV file for analysis.<br />
 Command Execution: The robot's LED color and motor speeds are updated based on the new color, and a command message is sent to the robot.
 
 - **Malicious Behaviour:**
-Initialization: Variables are initialized, including a list of potentially malicious robot IDs (mal_robot) and a victim ID.
-Neighbor Interaction: The algorithm checks the colors of neighboring robots and identifies potential victims if their IDs are in the malicious list.
-Victim Manipulation: If the robot is identified as a victim, its red and blue counts are set to 0.
-Color Change Logic: The algorithm decides whether to change the robot's color based on elapsed time. If the robot is a victim, the color change logic is reversed, leading to potentially disruptive behavior in the swarm.
+Initialization: Variables are initialized, including a list of potentially malicious robot IDs (mal_robot) and a victim ID.<br />
+Neighbor Interaction: The algorithm checks the colors of neighboring robots and identifies potential victims if their IDs are in the malicious list.<br />
+Victim Manipulation: If the robot is identified as a victim, its red and blue counts are set to 0.<br />
+Color Change Logic: The algorithm decides whether to change the robot's color based on elapsed time. If the robot is a victim, the color change logic is reversed, leading to potentially disruptive behavior in the swarm.<br />
 Data Logging and Command Execution: Similar to the normal behavior algorithm, the robot's data is saved, and its LED color and motor speeds are updated based on the new color.
+
 ### Limitations
 While this project provides valuable insights into the behavior of robot swarms and the impact of malicious agents, there are several limitations to the current experimental setup:
 
